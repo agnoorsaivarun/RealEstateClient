@@ -24,7 +24,7 @@ body{
 }
 
 .S-formDiv{
-    padding: 1.8rem 0.8rem;
+    /* padding: 1.8rem 0.8rem; */
     background-color: white;
     width: 28vw;
     border-radius: 0.5rem;
@@ -55,7 +55,7 @@ input{
     border-radius: 0.3rem;
 }
 #S-username{
-    margin-top: 3rem;
+    margin-top: 1rem;
     text-align: start;
     border: 2px solid #e5e1e1;
 }
