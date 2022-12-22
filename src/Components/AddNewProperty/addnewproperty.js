@@ -3,6 +3,7 @@ import BasicInfo from "./basicinfo";
 import PropertyDetails from "./propertydetails";
 import GeneralInfo from "./generalinfo";
 import LocationInfo from "./locationinfo";
+import './addnewproperty.css'
 
 const AddNewProperty = () => {
     const initialData = {
@@ -48,12 +49,20 @@ const AddNewProperty = () => {
     const [propertyData, setPropertyData] = useState(initialData)
     return (
         <>
-            <form>
-                { step===1 ? <BasicInfo setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData}/>:null}
-                { step===2 ? <PropertyDetails setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData}/>:null}
-                { step===3 ? <GeneralInfo setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData}/>:null}
-                { step===4 ? <LocationInfo setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData}/>:null}
-            </form>
+            <div className="form">
+                <section className="form-header">
+                    <button disabled className={step === 1 ?"select": "deselect"}>Basic Info</button>
+                    <button disabled className={step === 2 ?"select": "deselect"}>Property Details</button>
+                    <button disabled className={step === 3 ?"select": "deselect"}>General Info</button>
+                    <button disabled className={step === 4 ?"select": "deselect"}>Location Details</button>
+                </section>
+                <form>
+                    {step === 1 ? <BasicInfo setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData} /> : null}
+                    {step === 2 ? <PropertyDetails setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData} /> : null}
+                    {step === 3 ? <GeneralInfo setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData} /> : null}
+                    {step === 4 ? <LocationInfo setStep={setStep} propertyData={propertyData} setPropertyData={setPropertyData} /> : null}
+                </form>
+            </div>
         </>
     )
 }
