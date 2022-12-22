@@ -8,8 +8,6 @@ const Logout = () => {
   const [cookies, setCookie] = useCookies([]);
 
   const handleLogout = () => {
-    // console.log(cookies)
-    // localStorage.setItem("authorization", "");
     setCookie("jwt", "");
     navigate("/");
   };
