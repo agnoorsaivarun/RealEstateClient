@@ -59,7 +59,7 @@ export default function Login() {
         <div className="L-formDiv">
           <h1>Realestate</h1>
           <p>Enter your credentials to access your account</p>
-          <form action="/login" method="POST" onSubmit={handleLogin}>
+          <form action="/signin" method="POST" onSubmit={handleLogin}>
             <input
               id="L-userid"
               type="email"
