@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import { useState } from "react";
 import { HiOutlineUser } from "react-icons/hi";
 import { AiFillCaretDown } from "react-icons/ai";

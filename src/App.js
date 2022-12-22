@@ -1,10 +1,11 @@
 import React from "react";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Header from "./Components/Header/Header";
+import AddNewProperty from "./Components/AddNewProperty/addnewproperty";
 import Login from "./Components/Signup-Login/Login";
 import Signup from "./Components/Signup-Login/Signup";
 import Protected from "./Components/Protected/protected"
+import Property from "./Components/property/Property";
 
 function App() {
   return (
@@ -14,13 +15,27 @@ function App() {
     <Route path="/" element={<Login/>} />
     <Route path="/Signup" element={<Signup/>} />
     <Route
-          path="/Header"
+          path="/property"
           element={
             <Protected>
-              <Header />
+              <Property />
+              
             </Protected>
           }
         ></Route>
+        <Route
+          path="/addnewproperty"
+          element={
+            <Protected>
+              
+              <AddNewProperty/>
+            </Protected>
+          }
+        ></Route>
+        {/* <Route element={<Protected></Protected>}>
+                <Route path="/property" element={<Property/>}/>
+                <Route path="/addnewproperty" element={<AddNewProperty/>}></Route>
+            </Route> */}
     </Routes>
     </BrowserRouter>
     </>
