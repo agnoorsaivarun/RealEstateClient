@@ -1,11 +1,29 @@
-
+import React from "react";
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
+import Header from "./Components/Header/Header";
+import Login from "./Components/Signup-Login/Login";
+import Signup from "./Components/Signup-Login/Signup";
+import Protected from "./Components/Protected/protected"
 
 function App() {
   return (
-    <div className="App">
-     realestate client
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+    <Route path="/" element={<Login/>} />
+    <Route path="/Signup" element={<Signup/>} />
+    <Route
+          path="/Header"
+          element={
+            <Protected>
+              <Header />
+            </Protected>
+          }
+        ></Route>
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
