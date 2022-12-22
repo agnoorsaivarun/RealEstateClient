@@ -4,7 +4,7 @@ import PropertyDetails from "./propertydetails";
 import GeneralInfo from "./generalinfo";
 import LocationInfo from "./locationinfo";
 import './addnewproperty.css'
-
+import Header from "../Header/header";
 const AddNewProperty = () => {
     const initialData = {
         property_type: "",
@@ -49,6 +49,7 @@ const AddNewProperty = () => {
     const [propertyData, setPropertyData] = useState(initialData)
     return (
         <>
+        <Header/>
             <div className="form">
                 <section className="form-header">
                     <button disabled className={step === 1 ?"select": "deselect"}>Basic Info</button>

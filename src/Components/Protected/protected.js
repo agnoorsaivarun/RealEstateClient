@@ -8,6 +8,6 @@ const Protected = ({ children }) => {
     token = "";
   }
 
-  return <>{token.length ? children : <Navigate to="/login" />}</>;
+  return <>{token.length ? children : <Navigate to="/" />}</>;
 };
 export default Protected;

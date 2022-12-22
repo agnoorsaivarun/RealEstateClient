@@ -1,10 +1,11 @@
 import React from "react";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Header from "./Components/Header/Header";
+import Header from "./Components/Header/header";
 import Login from "./Components/Signup-Login/Login";
 import Signup from "./Components/Signup-Login/Signup";
 import Protected from "./Components/Protected/protected"
+import AddNewProperty from "./Components/AddNewProperty/addnewproperty";
 
 function App() {
   return (
@@ -14,10 +15,10 @@ function App() {
     <Route path="/" element={<Login/>} />
     <Route path="/Signup" element={<Signup/>} />
     <Route
-          path="/Header"
+          path="/addnewproperty"
           element={
             <Protected>
-              <Header />
+              <AddNewProperty />
             </Protected>
           }
         ></Route>
