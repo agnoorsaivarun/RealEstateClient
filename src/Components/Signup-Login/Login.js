@@ -38,7 +38,7 @@ export default function Login() {
             expires: new Date(Date.now() + 900000),
           });
 
-          navigate("/Header");
+          navigate("/property");
         })
         .catch((err) => {
           console.log(err);
