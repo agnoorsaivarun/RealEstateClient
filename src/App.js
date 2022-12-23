@@ -1,10 +1,14 @@
 import React from "react";
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import Header from "./Components/Header/Header";
 import Login from "./Components/Signup-Login/Login";
 import Signup from "./Components/Signup-Login/Signup";
 import Protected from "./Components/Protected/protected"
+import BasicInfo from "./Components/AddNewProperty/BasicInfo";
+import LocationInfo from "./Components/AddNewProperty/locationinfo";
+import GeneralInfo from "./Components/AddNewProperty/generalinfo";
+import PropertyDetails from "./Components/AddNewProperty/propertyDetails";
+import Property from "./Components/property/Property";
 
 function App() {
   return (
@@ -14,10 +18,42 @@ function App() {
     <Route path="/" element={<Login/>} />
     <Route path="/Signup" element={<Signup/>} />
     <Route
-          path="/Header"
+          path="/property"
           element={
             <Protected>
-              <Header />
+              <Property />
+            </Protected>
+          }
+        ></Route>
+      <Route
+          path="/basicinfo"
+          element={
+            <Protected>
+              <BasicInfo />
+            </Protected>
+          }
+        ></Route>
+        <Route
+          path="/propertydeatils"
+          element={
+            <Protected>
+              <PropertyDetails />
+            </Protected>
+          }
+        ></Route>
+        <Route
+          path="/generalinfo"
+          element={
+            <Protected>
+              <GeneralInfo />
+            </Protected>
+          }
+        ></Route>
+        <Route
+          path="/locationinfo"
+          element={
+            <Protected>
+              <LocationInfo />
             </Protected>
           }
         ></Route>
