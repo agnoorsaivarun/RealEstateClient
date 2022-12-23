@@ -4,7 +4,7 @@ import "./locationinfo.css";
 import Header from "../Header/header";
 import axios from "axios";
 import { Cookies } from "react-cookie";
-// import Sidebar from "../header_sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 
 function LocationInfo() {
   let navigate = useNavigate();
@@ -13,16 +13,7 @@ function LocationInfo() {
   const [allData, setAllData] = useState({});
   const [dataSent, setDataSent] = useState(false);
 
-  const random_views = Math.floor(Math.random() * 100 + 1);
-  let random_days;
-  const arr = ["Sold", "Unsold"];
-  const random_string = arr[Math.floor(Math.random() * arr.length)];
-  if (random_string === "Sold") {
-    random_days = 0;
-  } else if (random_string === "Unsold") {
-    random_days = Math.floor(Math.random() * 100 + 1);
-  }
-
+  
   const [data, setdata] = useState({
     email: "",
     city: "",
@@ -32,9 +23,6 @@ function LocationInfo() {
     landmark: "",
     latitude: "",
     longitude: "",
-    views: random_views,
-    status: random_string,
-    days_left: random_days,
   });
 
   useEffect(() => {
@@ -52,7 +40,7 @@ function LocationInfo() {
         data: allData,
       })
         .then((res) => {
-          window.alert("Data posted successfully!");
+          alert("Property Registered successfully!");
           localStorage.removeItem("BASIC_INFO");
           localStorage.removeItem("PROPERTY_DETAILS");
           localStorage.removeItem("GENERAL_INFO");
@@ -61,6 +49,7 @@ function LocationInfo() {
         })
         .catch((err) => {
           console.log(err);
+          alert("error in registering property")
         });
     };
 
@@ -95,7 +84,7 @@ function LocationInfo() {
   return (
     <>
       <Header />
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="main_section">
         <div className="heading">
           <h2>ADD NEW PROPERTY</h2>

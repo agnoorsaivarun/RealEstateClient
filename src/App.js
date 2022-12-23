@@ -8,6 +8,7 @@ import BasicInfo from "./Components/AddNewProperty/BasicInfo";
 import LocationInfo from "./Components/AddNewProperty/locationinfo";
 import GeneralInfo from "./Components/AddNewProperty/generalinfo";
 import PropertyDetails from "./Components/AddNewProperty/propertyDetails";
+import Property from "./Components/property/Property";
 
 function App() {
   return (
@@ -17,6 +18,14 @@ function App() {
     <Route path="/" element={<Login/>} />
     <Route path="/Signup" element={<Signup/>} />
     <Route
+          path="/property"
+          element={
+            <Protected>
+              <Property />
+            </Protected>
+          }
+        ></Route>
+      <Route
           path="/basicinfo"
           element={
             <Protected>

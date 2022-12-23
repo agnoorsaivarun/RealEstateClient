@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./generalinfo.css";
 import Header from "../Header/header";
-// import Sidebar from "../header_sidebar/Sidebar";
-import Filebase64 from "react-file-base64";
-import { AiFillCamera } from "react-icons/ai";
+import Sidebar from "../Sidebar/Sidebar";
+// import Filebase64 from "react-file-base64";
+// import { AiFillCamera } from "react-icons/ai";
 
 function GeneralInfo() {
   let navigate = useNavigate();
-  const [name, setName] = useState(true);
   const [data, setdata] = useState({
     name: "",
     mobile: "",
@@ -29,7 +28,7 @@ function GeneralInfo() {
   return (
     <>
       <Header />
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="main_section">
         <div className="heading">
           <h2>ADD NEW PROPERTY</h2>
@@ -194,7 +193,7 @@ function GeneralInfo() {
             </div>
           </div>
 
-          <div className="container-image">
+          {/* <div className="container-image">
             <AiFillCamera className="imageicon" />
             <div className="input-file">
               <Filebase64
@@ -213,7 +212,7 @@ function GeneralInfo() {
                 </div>
               ) : null}
             </div>
-          </div>
+          </div> */}
 
           <Link to="/propertydeatils">
             <button className="cancel">Previous</button>

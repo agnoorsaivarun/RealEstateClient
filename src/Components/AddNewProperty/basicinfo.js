@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./BasicInfo.css";
 import Header from "../Header/header";
-// import Sidebar from "../header_sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 
 function BasicInfo() {
   let navigate = useNavigate();
@@ -28,7 +28,7 @@ function BasicInfo() {
   return (
     <>
       <Header />
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="main_section">
         <div className="heading">
           <h2>ADD NEW PROPERTY</h2>
