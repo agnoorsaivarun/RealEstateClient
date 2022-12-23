@@ -1,108 +1,106 @@
 import React from "react";
 import { useState, useEffect } from "react";
- import { Link } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-// import { debounce } from "lodash";
- import { BsSearch } from "react-icons/bs";
-// import { BiShow, BiPencil } from "react-icons/bi";
-// import { FaImages } from "react-icons/fa";
-// import axios from "axios";
- import { Cookies } from "react-cookie";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { debounce } from "lodash";
+import { BsSearch } from "react-icons/bs";
+import { BiShow, BiPencil } from "react-icons/bi";
+import { FaImages } from "react-icons/fa";
+import axios from "axios";
+import { Cookies } from "react-cookie";
 import Header from "../Header/Header";
-//import Sidebar from "../header_sidebar/Sidebar";
+import Sidebar from "../Header/Sidebar";
 import "./Property.css";
 
 const Property = () => {
-//   const [value, setValue] = useState("");
-//   const [users, setUsers] = useState([]);
+  const [value, setValue] = useState("");
+  const [users, setUsers] = useState([]);
   // const [userName_id, setUserName_id] = useState({})
   const cookies = new Cookies();
   const token = cookies.get("jwt");
-//   let navigate = useNavigate();
+  let navigate = useNavigate();
 
-//   const deb = debounce((text) => {
-//     setValue(text);
-//   }, 1000);
+  const deb = debounce((text) => {
+    setValue(text);
+  }, 1000);
 
-//   const onChange = (e) => {
-//     // e.prventDefault();
-//     const text = e.target.value;
-//     // setDataval(text);
-//     // console.log(e.target.elements.searchtext.value);
-//     deb(text);
-//   };
+  const onChange = (e) => {
+    // e.prventDefault();
+    const text = e.target.value;
+    // setDataval(text);
+    // console.log(e.target.elements.searchtext.value);
+    deb(text);
+  };
 
-//   const onSearch = (searchTerm) => {
-//     console.log(searchTerm);
-//     const ppd_arr = searchTerm.split(" ");
-//     console.log(ppd_arr);
-//     const ppd_id = parseInt(ppd_arr[1]);
+  const onSearch = (searchTerm) => {
+    console.log(searchTerm);
+    const ppd_arr = searchTerm.split(" ");
+    console.log(ppd_arr);
+    const ppd_id = parseInt(ppd_arr[1]);
 
-//     // axios.get("http://localhost:5000/property")
-//     axios({
-//       method: "get",
-//       url: "http://localhost:8080/property",
-//       headers: {
-//         Accept: "application/json",
-//         authorization: token,
-//         "Content-Type": "application/json",
-//       },
-//       credentials: "include",
-//     })
-//       .then((res) => {
-//         let post = res.data.property;
-//         //console.log(post);
-//         const result = post.filter((val) => val._id === ppd_id);
-//         //console.log(res);
-//         setUsers(result);
-//         if (result.length === 0) {
-//           window.alert(`Oops! Please provide the correct "PPD ID".`);
-//         }
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   };
+    
+    axios({
+      method: "get",
+      url: "http://localhost:8080/property",
+      headers: {
+        Accept: "application/json",
+        authorization: token,
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((res) => {
+        let post = res.data.property;
+        //console.log(post);
+        const result = post.filter((val) => val._id === ppd_id);
+        //console.log(res);
+        setUsers(result);
+        if (result.length === 0) {
+          window.alert(`Oops! Please provide the correct "PPD ID".`);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-//   useEffect(() => {
-//     const afterLogin = () => {
-//       console.log("Inside afterLogin function property.js useEffect");
-//       axios({
-//         method: "get",
-//         url: "http://localhost:8080/property",
-//         headers: {
-//           Accept: "application/json",
-//           authorization: token,
-//           "Content-Type": "application/json",
-//         },
-//         credentials: "include",
-//       })
-//         .then((res) => {
-//           console.log("Inside then block of property.js");
+  useEffect(() => {
+    const afterLogin = () => {
+      console.log("Inside afterLogin function property.js useEffect");
+      axios({
+        method: "get",
+        url: "http://localhost:8080/property",
+        headers: {
+          Accept: "application/json",
+          authorization: token,
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      })
+        .then((res) => {
+          console.log("Inside then block of property.js");
+          setUsers(res.data.property);
+        })
+        .catch((err) => {
+          console.log("Inside catch block of property.js");
+          console.log(err);
 
-//           setUsers(res.data.property);
-//           console.log(res.data.property);
-//         })
-//         .catch((err) => {
-//           console.log("Inside catch block of property.js");
-//           console.log(err);
+          if (
+            err.response.data === "Unauthorized user" ||
+            err.response.status === 409
+          ) {
+            navigate("/login");
+          }
+        });
+    };
 
-//           if (
-//             err.response.data === "Unauthorized user" ||
-//             err.response.status === 409
-//           ) {
-//             navigate("/login");
-//           }
-//         });
-//     };
-
-//     afterLogin();
-//   }, [token, navigate, value]);
+    afterLogin();
+  }, [token, navigate, value]);
 
   return (
     <>
       <Header />
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="row_search_bar">
         <div className="boxContainer">
           <table className="elementsContainer">
@@ -113,7 +111,7 @@ const Property = () => {
                   placeholder="Search PPD ID (e.g. PPD 0000)"
                   className="search"
                   name="searchtext"
-                //   onChange={onChange}
+                  onChange={onChange}
                 />
               </td>
 
@@ -122,8 +120,7 @@ const Property = () => {
               </td>
 
               <td>
-              {/* onClick={() => onSearch(value)} */}
-                <button className="search_btn">
+                <button className="search_btn" onClick={() => onSearch(value)}>
                   <BsSearch className="search_icon" />
                 </button>
               </td>
@@ -153,7 +150,7 @@ const Property = () => {
         <p className="head_column_nine">Action</p>
       </div>
 
-      {/* {[...users].map((user, i) => {
+      {[...users].map((user, i) => {
         return (
           <div key={i} className="property_row">
             <p className="property_column_one">PPD {user._id}</p>
@@ -174,7 +171,7 @@ const Property = () => {
             </p>
           </div>
         );
-      })} */}
+      })}
     </>
   );
 };

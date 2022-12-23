@@ -19,7 +19,6 @@ function App() {
           element={
             <Protected>
               <Property />
-              
             </Protected>
           }
         ></Route>
@@ -27,15 +26,10 @@ function App() {
           path="/addnewproperty"
           element={
             <Protected>
-              
               <AddNewProperty/>
             </Protected>
           }
         ></Route>
-        {/* <Route element={<Protected></Protected>}>
-                <Route path="/property" element={<Property/>}/>
-                <Route path="/addnewproperty" element={<AddNewProperty/>}></Route>
-            </Route> */}
     </Routes>
     </BrowserRouter>
     </>

@@ -1,4 +1,4 @@
-import React  from "react";
+import {React,useEffect}  from "react";
 import { useState } from "react";
 import { HiOutlineUser } from "react-icons/hi";
 import { AiFillCaretDown } from "react-icons/ai";
@@ -56,8 +56,9 @@ const Header = () => {
           />
           {show ? <Logout /> : null}
         </div>
+        <hr className="line"></hr>
       </div>
-      <hr className="line"></hr>
+      
     </>
   );
 };
