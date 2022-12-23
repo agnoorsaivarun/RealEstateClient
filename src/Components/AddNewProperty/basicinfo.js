@@ -233,7 +233,7 @@ function BasicInfo() {
             </div>
           </div>
 
-          <Link to="/">
+          <Link to="/property">
             <button className="cancel">Cancel</button>
           </Link>
           <button className="save2" type="submit">

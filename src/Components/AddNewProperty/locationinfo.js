@@ -45,7 +45,7 @@ function LocationInfo() {
           localStorage.removeItem("PROPERTY_DETAILS");
           localStorage.removeItem("GENERAL_INFO");
           console.log(res);
-          navigate("/");
+          navigate("/property");
         })
         .catch((err) => {
           console.log(err);

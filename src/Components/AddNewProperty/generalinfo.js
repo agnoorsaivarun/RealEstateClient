@@ -3,8 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./generalinfo.css";
 import Header from "../Header/header";
 import Sidebar from "../Sidebar/Sidebar";
-// import Filebase64 from "react-file-base64";
-// import { AiFillCamera } from "react-icons/ai";
 
 function GeneralInfo() {
   let navigate = useNavigate();
